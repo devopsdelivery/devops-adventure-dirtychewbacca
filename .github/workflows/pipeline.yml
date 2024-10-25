@@ -39,7 +39,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         context: ./fastapi_postgres_app
-        file: Dockerfile
+        #file: Dockerfile
         push: true
         tags: diogoromero/dirtychewbacca:latest
 
