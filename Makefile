@@ -58,10 +58,10 @@ build-postgresql:
 	docker build -t postgres ./postgres
 
 build-app:
-	docker build -t app ./app
+	docker build -t app ./fastapi_postgres_app
 
 build-all:
-	docker build -t app ./app
+	docker build -t app ./fastapi_postgres_app
 	docker build -t postgres ./postgres
 
 run-postgres:
