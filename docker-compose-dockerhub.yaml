@@ -1,8 +1,8 @@
 
 services:
   app:
-    container_name: paulo/app:0.0.1app_api
-  
+    image: diogoromero/dirtychewbacca:latest
+    container_name: dirtychewbacca
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
