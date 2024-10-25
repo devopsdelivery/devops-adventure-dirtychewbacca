@@ -1,0 +1,6 @@
+# created by virtualenv automatically
+
+
+*/.venv/*
+fastapi_postgres_app/poetry.lock
+*/__pycache__/*
