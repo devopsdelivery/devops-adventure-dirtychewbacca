@@ -32,7 +32,7 @@ jobs:
         echo "Hello world 2"
 
     - name: Build Docker image
-      run: docker build  --file fastapi_postgres_app/Dockerfile --tag my-image-name:$(date +%s) ./fastapi_postgres_app
+      run: docker build ./fastapi_postgres_app --tag chewbacca:$(date +%s)
 
       
     - name: Build and push Docker image
