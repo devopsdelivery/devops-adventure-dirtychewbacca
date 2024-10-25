@@ -1,2 +1,5 @@
 # devops-adventure-dirtychewbacca
-adsfdsaf
+
+## Team
+- Paulo
+- Diogo
