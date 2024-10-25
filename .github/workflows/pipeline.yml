@@ -42,3 +42,5 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: diogoromero/dirtychewbacca:latest
+
+        #caca
