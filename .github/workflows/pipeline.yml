@@ -23,5 +23,5 @@ jobs:
         echo "Hello World"
         echo "Hello world 2"
 
-    - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Build Docker image
+      run: docker build ./fastapi_postgres_app --file Dockerfile --tag my-image-name:$(date +%s)
