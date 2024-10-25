@@ -26,5 +26,5 @@ ENV POSTGRES_HOST=postgres
 ENV POSTGRES_DB=postgres
 
 # Command to run when the container starts
-CMD ["poetry", "run", "uvicorn", "fastapi_postgres_app.app:app", "--host", "0.0.0.0", "--port", "8000"] 
+CMD ["poetry", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"] 
 # Este comando será OverRide pelo comando de RUN-APP do Makefile ou qualquer outra execução RUN da app

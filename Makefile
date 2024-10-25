@@ -49,10 +49,10 @@ run_app_main:
 	poetry run python app/main.py
 
 run_uvicorn: ## Run the FastAPI server
-	poetry run uvicorn app.main:app --reload
+	poetry run uvicorn fastapi_postgres_app.main:app --reload
 
-
-
+create-network:
+	docker network create app-network
 
 build-postgresql:
 	docker build -t postgres ./postgres
@@ -62,13 +62,13 @@ build-app:
 
 build-all:
 	docker build -t app ./fastapi_postgres_app
-	docker build -t postgres ./postgres
+	#docker build -t postgres ./postgres
 
 run-postgres:
 	docker run -d --rm --name postgres --network app-network -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_DB=postgres -p 5432:5432 postgres
 
-run-app: build-all run-postgres
-	docker run -it --rm --name app --network app-network -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_HOST=postgres -e POSTGRES_DB=postgres -v ${PWD}/app:/app -p 8000:8000 app poetry run uvicorn src.app:app --host 0.0.0.0 --port 8000
+run-app: build-app run-postgres
+	docker run -it --rm --name app --network app-network -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -e POSTGRES_HOST=postgres -e POSTGRES_DB=postgres -v ${PWD}/app:/app -p 8000:8000 app poetry run uvicorn fastapi_postgres_app.app.main:app --host 0.0.0.0 --port 8000
 
 
 stop-all:
